@@ -14,8 +14,6 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import java.util.Locale;
-
 import log.Logger;
 
 public class MainApplicationFrame extends JFrame {
@@ -130,6 +128,8 @@ public class MainApplicationFrame extends JFrame {
                 JOptionPane.QUESTION_MESSAGE
         );
         if (response == JOptionPane.YES_OPTION) {
+            // Генерируем событие закрытия окна
+            dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
             for (JInternalFrame frame : desktopPane.getAllFrames()) {
                 if (frame instanceof LogWindow) {
                     ((LogWindow) frame).saveState();
@@ -138,5 +138,4 @@ public class MainApplicationFrame extends JFrame {
             System.exit(0);
         }
     }
-
 }
