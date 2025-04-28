@@ -117,7 +117,7 @@ public class MainApplicationFrame extends JFrame {
         if (response == JOptionPane.YES_OPTION) {  // Если нажата кнопка "Да"
             for (JInternalFrame frame : desktopPane.getAllFrames()) {
                 if (frame instanceof LogWindow) {
-                    ((LogWindow) frame).saveState();  // Сохраняем состояние, если необходимо
+                    ((LogWindow) frame).saveState();  // Сохраняем состояние
                 }
             }
             System.exit(0);  // Закрываем приложение

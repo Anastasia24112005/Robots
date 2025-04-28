@@ -86,7 +86,6 @@ public class LogWindow extends JInternalFrame implements LogChangeListener {
                 }
             }
         } catch (IOException ex) {
-            // File might not exist on first run
             System.out.println("Configuration file not found. Using default settings.");
         }
     }
