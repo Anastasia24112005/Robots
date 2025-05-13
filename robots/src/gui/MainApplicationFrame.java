@@ -98,7 +98,7 @@ public class MainApplicationFrame extends JFrame {
             SwingUtilities.updateComponentTreeUI(this);
         } catch (ClassNotFoundException | InstantiationException
                  | IllegalAccessException | UnsupportedLookAndFeelException e) {
-            // just ignore
+
         }
     }
 
@@ -114,7 +114,7 @@ public class MainApplicationFrame extends JFrame {
                 JOptionPane.QUESTION_MESSAGE
         );
 
-        if (response == JOptionPane.YES_OPTION) {  // Если нажата кнопка "Да"
+        if (response == JOptionPane.YES_OPTION) {
             for (JInternalFrame frame : desktopPane.getAllFrames()) {
                 if (frame instanceof LogWindow) {
                     ((LogWindow) frame).saveState();  // Сохраняем состояние
