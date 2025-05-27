@@ -1,5 +1,4 @@
 package gui;
-
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -8,10 +7,11 @@ import log.Logger;
 public class MainApplicationFrame extends JFrame {
     private final JDesktopPane desktopPane = new JDesktopPane();
     private final MenuWindow menuWindow;
-    private boolean isClosing = false; // для закрытия
+    private boolean isClosing = false;
 
     private LogWindow logWindow;
     private GameWindow gameWindow;
+    private RobotCoordinatesWindow robotCoordinatesWindow;
 
     public MainApplicationFrame() {
         setContentPane(desktopPane);
@@ -19,6 +19,7 @@ public class MainApplicationFrame extends JFrame {
         // Создание внутренних окон
         logWindow = createLogWindow();
         gameWindow = new GameWindow();
+        robotCoordinatesWindow = new RobotCoordinatesWindow(gameWindow.getRobotModel());
 
         menuWindow = new MenuWindow(this);
         setJMenuBar(menuWindow.generateMenuBar());
@@ -33,6 +34,7 @@ public class MainApplicationFrame extends JFrame {
 
         addWindow(logWindow);
         addWindow(gameWindow);
+        addWindow(robotCoordinatesWindow);
     }
 
     protected LogWindow createLogWindow() {
@@ -40,6 +42,7 @@ public class MainApplicationFrame extends JFrame {
         Logger.debug("Протокол работает");
         return logWindow;
     }
+
     protected void addWindow(JInternalFrame frame) {
         desktopPane.add(frame);
         frame.setVisible(true);

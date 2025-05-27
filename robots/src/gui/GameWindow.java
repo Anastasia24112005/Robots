@@ -1,9 +1,6 @@
 package gui;
-
-import javax.swing.JInternalFrame;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.Rectangle;
+import javax.swing.*;
+import java.awt.*;
 import java.util.prefs.Preferences;
 
 public class GameWindow extends JInternalFrame implements WindowState {
@@ -19,6 +16,10 @@ public class GameWindow extends JInternalFrame implements WindowState {
         getContentPane().add(panel);
         pack();
         load();
+    }
+
+    public RobotModel getRobotModel() {
+        return m_visualizer.getRobotModel();
     }
 
     @Override
